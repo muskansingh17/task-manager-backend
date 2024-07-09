@@ -21,7 +21,7 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/yourusername/task-manager.git
+   git clone https://github.com/muskansingh17/task-manager-backend.git
    cd task-list-app
    ```
 
@@ -32,17 +32,14 @@ Before you begin, ensure you have the following installed:
 
 ## Configuration
 
-1. **To configure the API base URL, edit the src/config/config.js file:**
+1. **To configure the API base URL, create `.env` file in root folder and put following variables:**
 
     ```
-    // src/config/config.js
-    const config = {
-        mongoURI: "mongodb://localhost:27017/task-manager",
-        jwtSecret: "your-secret-key",
-        jwtExpiration: "1h",
-    };
-
-    export default config;
+    // .env
+    MONGO_URL=mongodb://localhost:27017/task-manager
+    JWT_SECRET= your-secret-key
+    JWT_EXPIRATION_TIME=1d
+    PORT=5000
     ```
 
 ## Running the Application
