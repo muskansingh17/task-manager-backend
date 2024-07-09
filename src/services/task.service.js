@@ -24,12 +24,29 @@ const mapTasksWithPermissions = (tasks, taskPermissions) => {
     const task = JSON.parse(JSON.stringify(_task));
     const { _id: taskId } = task;
 
-    const permission =
+    const ownerPermission =
       taskPermissions.find(
-        (taskPermission) => String(taskPermission.taskId) === String(taskId)
-      )?.permission || "viewer";
+        (taskPermission) =>
+          String(taskPermission.taskId) === String(taskId) &&
+          taskPermission.permission === "owner"
+      )?.permission || null;
+    if (ownerPermission) {
+      task.permission = ownerPermission;
+      return task;
+    }
 
-    task.permission = permission;
+    const collaboratorPermission =
+      taskPermissions.find(
+        (taskPermission) =>
+          String(taskPermission.taskId) === String(taskId) &&
+          taskPermission.permission === "collaborator"
+      )?.permission || null;
+    if (collaboratorPermission) {
+      task.permission = collaboratorPermission;
+      return task;
+    }
+
+    task.permission = "viewer";
     return task;
   });
 };
