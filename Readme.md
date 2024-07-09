@@ -1,4 +1,4 @@
-# Task List Application (Backend)
+# Task Manager Application (Backend)
 
 This is a Express application for managing tasks with user registration and authentication. Follow the steps below to set up and run the project locally.
 
@@ -26,7 +26,7 @@ Before you begin, ensure you have the following installed:
    ```
 
 2. **Install dependencies:**
-   ```
+   ```sh
     npm install
    ```
 
@@ -34,7 +34,7 @@ Before you begin, ensure you have the following installed:
 
 1. **To configure the API base URL, create `.env` file in root folder and put following variables:**
 
-    ```
+    ```js
     // .env
     MONGO_URL=mongodb://localhost:27017/task-manager
     JWT_SECRET= your-secret-key
